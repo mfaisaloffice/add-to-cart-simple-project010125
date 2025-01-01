@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+</head>
+<body>
+    Mobile - <input type="button" value="Add to Cart" onclick="add('Mobile')">
+    Laptop - <input type="button" value="Add to Cart" onclick="add('Laptop')">
+    LED - <input type="button" value="Add to Cart" onclick="add('LED')">
+    Tablet - <input type="button" value="Add to Cart" onclick="add('Tablet')">
+
+    <div style='background-color: aquamarine; height: 200px; width: 150px; float: right; padding: 20px'>
+
+        Total Items - <b id="count">0</b>
+        <ol id ="ol"></ol>
+    </div>
+
+    <script>
+        let counter = 0;
+
+        function add(itms){
+        
+        counter++;
+        document.getElementById('count').innerText = counter;
+
+        document.getElementById('ol').innerHTML += `<li> ${itms} <input type='button' value ='x' onclick='remove(this)'></li>`; 
+
+        }
+
+        function remove(button){
+         button.parentElement.remove();// Removes the <li> containing the button
+
+         counter--;
+         document.getElementById('count').innerText=counter;
+        
+
+        }
+
+    </script>
+
+</body>
+</html>
